@@ -132,7 +132,7 @@ def ekto_scrape(ekto_url,ekto_rating)
     dll   = d.css(".dll").css("a").to_s.split(/\"/)[1]
 
     unless score < @rating
-      printf "%-65s %-20s %-25 %-1f\n".cyan % [ title, score, 'starting', ((1 / pgs.to_f) * 100).to_f ]
+      printf "%-65s %-20s %-25s %-1f\n".cyan % [ title, score, 'starting', ((1 / pgs.to_f) * 100).to_f ]
       system("#{@dlmgmr} #{dll}")
       puts 
     else 
