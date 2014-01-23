@@ -80,15 +80,13 @@ def ekto_scrape(ekto_url,ekto_rating)
 
   printf "\n===\s%s===\n\n".blue % [ @doc.at_css("title").text.split(/\-/)[0], pgs - pgs + 1 ]
   printf "%-65s %-20s %-25s %-2s\n\n".cyan % [ 'Release:', 'Rating:', 'Status:', 'Completed:']
-  #page 1
-  #printf "===\s%s===\n\s===============Page:(%s)================\n\n".green % [ @doc.at_css("title").text.split(/\-/)[0], pgs - pgs + 1 ]
 
+  #page 1
   post.each {|d|
     title = d.css("h1").css("a").text
     score = d.css("strong").to_s.split(/\>|\%/)[-4].to_i
     dll   = d.css(".dll").css("a").to_s.split(/\"/)[1]
 
-    #p ((1 / pgs.to_i) * 100).to_f
     unless score < @rating
       printf "%-65s %-20s %-25 %-1f\n".cyan % [ title, score, 'starting', ((1 / pgs.to_f) * 100).to_f ]
       system("#{@dlmgmr} #{dll}")
@@ -98,12 +96,12 @@ def ekto_scrape(ekto_url,ekto_rating)
     end
     puts
   }
+
   #remaining pages
   for pages in 2..pgs
 
     url = "#{ekto_url}/page/#{pages}"
     @doc = Nokogiri::HTML(open(url))
-    #printf "\s===============Page:(%s)================\n\n".green % [ pages ]
 
     post = @doc.css(".post")
     post.each {|d|
@@ -112,12 +110,10 @@ def ekto_scrape(ekto_url,ekto_rating)
       dll   = d.css(".dll").css("a").to_s.split(/\"/)[1]
 
       unless score < @rating
-        #printf "Release: %-45s => rating = %-2s: ".cyan % [ title, score]
         printf "%-65s %-20s %-25s %-1f\n".cyan % [ title, score, 'starting', ((pages.to_f / pgs.to_f) * 100).to_f ]
         system("#{@dlmgmr} #{dll}")
         puts 
       else 
-        #printf "Release: %-45s => rating < %-2s/100: skipping\n".red % [ title, @rating ]
         printf "%-65s %-20s %-25s %-1f\n".red % [ title, score, 'skipping', ((pages.to_f / pgs.to_f) * 100).to_f ]
       end #unless
       puts
