@@ -1,11 +1,16 @@
 #!/usr/bin/env ruby
 
-# scapper to download MP3's from http://www.ektoplazm.com/style/genre based on rating
-# sample usage:
-#  scan all pages on http://www.ektoplazm.com/style/progressive
-#   download MP3 packs with rating > 95%
-#    ekto_scrape("http://www.ektoplazm.com/style/progressive","95")
-# author: Jayendren Maduray <jayendren@gmail.com>
+# About:
+#  scrapper to download MP3's from http://www.ektoplazm.com/style/genre based on rating
+#
+# Sample usage:
+#  Interactive:
+#   ./ekto_scaper
+#
+#  CLI:
+#   ./ekto_scaper --url 'http://www.ektoplazm.com/style/progressive' --rating '95'
+#
+# Author: Jayendren Maduray <jayendren@gmail.com>
 
 require 'rubygems'
 require 'nokogiri'
@@ -50,7 +55,7 @@ def ekto_input
   else
 
     printf "Interactive mode started: \n\n".cyan
-    printf "Type ektoplasm URL > ".green
+    printf "Type ektoplazm URL > ".green
 
     @ekto_url = gets.strip.to_s
     unless ! @ekto_url.match(/^http\:\/\/www\.ektoplazm\.com\/style\//)
