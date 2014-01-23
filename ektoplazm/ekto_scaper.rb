@@ -14,7 +14,7 @@
 #   ./ekto_scaper
 #
 #  CLI:
-#   ./ekto_scaper --url 'http://www.ektoplazm.com/style/progressive' --rating '95'
+#   ./ekto_scaper --url http://www.ektoplazm.com/style/progressive --rating 96
 #
 # Sample output:
 #
@@ -22,7 +22,7 @@
 # DBG: URL: http://www.ektoplazm.com/style/progressive - RATING: 96
 #
 # loading...please wait.
-#
+# ...
 #
 # === Progressive Releases at Ektoplazm ===
 #
