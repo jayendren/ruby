@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# scapper to download MP3's form ektoplasm.com/genre based on rating
+# scapper to download MP3's from http://www.ektoplazm.com/style/genre based on rating
 # sample usage:
 #  scan all pages on http://www.ektoplazm.com/style/progressive
 #   download MP3 packs with rating > 95%
