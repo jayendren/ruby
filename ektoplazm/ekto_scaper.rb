@@ -39,17 +39,21 @@ def ekto_input
     exit 0
 
   elsif (ARGV[0].to_s.match(/^\-\-url$/))
+
     unless (ARGV[1].to_s.empty?) or ! (ARGV[1].to_s.match(/^http\:\/\/www\.ektoplazm\.com\/style\//))
       @ekto_url = ARGV[1]
     else 
       puts "invalid url !".red; exit 1
     end
+
     if (ARGV[2].to_s.match(/^\-\-rating$/))
+
       unless (ARGV[3].to_s.empty?) or ! (ARGV[3].to_i < 100)   
         @ekto_rating = ARGV[3]   
       else 
         puts "rating cannot be > 100 !".red; exit 1
       end        
+
     end
 
   else
@@ -61,20 +65,22 @@ def ekto_input
     unless ! @ekto_url.match(/^http\:\/\/www\.ektoplazm\.com\/style\//)
       printf "Type the rating: > ".green
       @ekto_rating  = gets.strip.to_s
+
       unless ! (@ekto_rating.to_i < 100)
         printf "\n"
       else 
         puts "rating cannot be > 100 !".red; exit 1
       end
+
     else 
       puts "invalid url !".red; exit 1
-    end
+    end 
 
   end  
   puts "DBG: URL: #{@ekto_url} - RATING: #{@ekto_rating}\n".green
   puts "loading...please wait.\n".green
 
-end
+end #def
 
 def ekto_scrape(ekto_url,ekto_rating)
   url     = ekto_url  
@@ -98,7 +104,7 @@ def ekto_scrape(ekto_url,ekto_rating)
       puts 
     else 
       printf "%-65s %-20s %-25s %-1f\n".red % [ title, score, 'skipping', ((1 / pgs.to_f) * 100).to_f ]
-    end
+    end 
     puts
   }
 
@@ -120,7 +126,7 @@ def ekto_scrape(ekto_url,ekto_rating)
         puts 
       else 
         printf "%-65s %-20s %-25s %-1f\n".red % [ title, score, 'skipping', ((pages.to_f / pgs.to_f) * 100).to_f ]
-      end #unless
+      end 
       puts
     }
 
