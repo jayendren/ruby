@@ -3,6 +3,12 @@
 # About:
 #  scrapper to download MP3's from http://www.ektoplazm.com/style/genre based on rating
 #
+# Requires:
+#  rubygems:
+#   nokogiri, open-uri, colorize
+#  download manager:
+#   axel or wget (update @dlmgmr variable with path)
+#
 # Sample usage:
 #  Interactive:
 #   ./ekto_scaper
