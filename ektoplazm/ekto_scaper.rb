@@ -10,6 +10,33 @@
 #  CLI:
 #   ./ekto_scaper --url 'http://www.ektoplazm.com/style/progressive' --rating '95'
 #
+# Sample output:
+#
+# └─[$] <> ./ekto.rb --url http://www.ektoplazm.com/style/progressive --rating 96                                                                                             130 ↵
+# DBG: URL: http://www.ektoplazm.com/style/progressive - RATING: 96
+#
+# loading...please wait.
+#
+#
+# === Progressive Releases at Ektoplazm ===
+#
+# Release:                                                          Rating:              Status:                   Completed:
+#
+# DJ Basilisk – Replicant Redux                                     93                   skipping                  98.076923
+# 
+# DJ Basilisk – Nocturnal Wanderlust                                96                   starting                  100.000000
+# Initializing download: http://www.ektoplazm.com/files/DJ%20Basilisk%20-%20Nocturnal%20Wanderlust.mp3
+# File size: 191565824 bytes
+# Opening output file DJ Basilisk - Nocturnal Wanderlust.mp3.0
+# Starting download
+#
+# Connection 1 finished                                                          ]
+# Connection 3 finished                                                          ]
+# Connection 2 finished                                                          ]
+# Connection 0 finished                                                          ]
+#
+# Downloaded 182.7 megabytes in 5:01 seconds. (621.36 KB/s)
+
 # Author: Jayendren Maduray <jayendren@gmail.com>
 
 require 'rubygems'
